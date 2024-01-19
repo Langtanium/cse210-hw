@@ -1,3 +1,6 @@
+// Saves files with correct csv syntax
+// When loading, the user can choose to erase previous data
+
 using System;
 
 class Program
@@ -48,7 +51,7 @@ class Program
                 Console.WriteLine("What is the filename?");
                 string fileName = Console.ReadLine();
 
-                Console.WriteLine("Do you want to overwrite existing data? ");
+                Console.WriteLine("Do you want to erase existing data? ");
                 string overwrite = Console.ReadLine();
                 string overLower = overwrite.ToLower();
 
