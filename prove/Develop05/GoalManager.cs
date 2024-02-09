@@ -152,30 +152,10 @@ public class GoalManager
         int goalSelect = int.Parse(Console.ReadLine());
 
         Goal goalRecorded = _goals[goalSelect-1];
-        goalRecorded.RecordEvent();
-
-        string goalDetail = goalRecorded.GetStringReprensentation();
-        string[] detailParts1 = goalDetail.Split(":");
-        string[] detailParts2 = detailParts1[1].Split(",");
-        int score;
-        if (detailParts1[0] == "ChecklistGoal")
-        {
-            if(detailParts2[4] == detailParts2[5])
-            {
-                score = int.Parse(detailParts2[2]) + int.Parse(detailParts2[3]);
-            }
-            else
-            {
-                score = int.Parse(detailParts2[2]);
-            }
-        }
-        else
-        {
-            score = int.Parse(detailParts2[2]);
-        }
 
         if (!goalRecorded.IsComplete())
         {
+            int score = goalRecorded.RecordEvent();
             _score += score;
 
             Console.WriteLine($"Congradulations! You have just earned {score} points!");
