@@ -12,7 +12,7 @@ public abstract class Activity
     public virtual string GetSummary(string activityType)
     {
         DateTime currentTime = DateTime.Now;
-        return currentTime + " " + activityType + " (" + _time.ToString() + "): Distance: " + GetDistance().ToString() + " km, Speed: " + GetSpeed().ToString() + " kph, Pace: " + GetPace().ToString() + " min per km";
+        return currentTime + " " + activityType + " (" + _time.ToString() + " min): Distance: " + GetDistance().ToString() + " km, Speed: " + GetSpeed().ToString() + " kph, Pace: " + GetPace().ToString() + " min per km";
     }
 
     public abstract double GetDistance();

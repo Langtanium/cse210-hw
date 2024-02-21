@@ -12,7 +12,7 @@ public class SwimmingActivity : Activity
     public override string GetSummary(string activityType)
     {
         DateTime currentTime = DateTime.Now;
-        return currentTime + " " + activityType + " (" + GetTime().ToString() + "): Distance: " + GetDistance().ToString() + " km, Speed: " + GetSpeed().ToString() + " kph, Pace: " + GetPace().ToString() + " min per km, Laps: " + _laps.ToString();
+        return currentTime + " " + activityType + " (" + GetTime().ToString() + " min): Distance: " + GetDistance().ToString() + " km, Speed: " + GetSpeed().ToString() + " kph, Pace: " + GetPace().ToString() + " min per km, Laps: " + _laps.ToString();
     }
 
     public override double GetDistance()
@@ -22,11 +22,11 @@ public class SwimmingActivity : Activity
 
     public override double GetSpeed()
     {
-        return (((double)_laps) * 50 / 1000) / ((double)GetTime()) * 60;
+        return GetDistance() / ((double)GetTime()) * 60;
     }
 
     public override double GetPace()
     {
-        return ((double)GetTime()) / (((double)_laps) * 50 / 1000);
+        return ((double)GetTime()) / GetDistance();
     }
 }
